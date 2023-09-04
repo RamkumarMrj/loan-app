@@ -1,0 +1,38 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./loan-app
+      dockerfile: Dockerfile
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./loan-app:/app
+    depends_on:
+      - backend
+    environment:
+      - API_URL=http://backend:5000/api
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app.py:/app/app.py
+    environment:
+      - DB_USERNAME=root
+      - DB_PASSWORD=root
+      - DB_NAME=load_app
+    depends_on:
+      - database
+
+  database:
+    image: postgres:13
+    environment:
+      - POSTGRES_DB=load_app
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+    ports:
+      - "5432:5432"

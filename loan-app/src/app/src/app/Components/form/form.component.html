@@ -1,0 +1,27 @@
+<h2>Application Form</h2>
+<br>
+<form class="row g-3" (ngSubmit)="onSubmit()">
+  <div class="col-12">
+    <label for="businessDetails" class="form-label">Business Details</label>
+    <input type="text" class="form-control" id="businessDetails" name="businessDetails"
+      [(ngModel)]="formData.businessDetails" required>
+  </div>
+  <div class="col-12">
+    <label for="loanAmount" class="form-label">Loan Amount</label>
+    <input type="number" class="form-control" id="loanAmount" name="loanAmount" [(ngModel)]="formData.loanAmount"
+      required>
+  </div>
+  <div class="col-12">
+    <label for="accountingProvider" class="form-label">Accounting Provider</label>
+    <select id="accountingProvider" class="form-select" name="accountingProvider"
+      [(ngModel)]="formData.accountingProvider" required>
+      <option value="ASP1">Accounting Provider 1</option>
+      <option value="ASP2">Accounting Provider 2</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <p>{{ applicationResult }}</p>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>
+

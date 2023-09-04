@@ -1,0 +1,20 @@
+<h2>Balance Sheet</h2>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Year</th>
+      <th scope="col">Month</th>
+      <th scope="col">Profit/Loss</th>
+      <th scope="col">Assets Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let entry of balanceSheet">
+      <td>{{ entry.year }}</td>
+      <td>{{ entry.month }}</td>
+      <td>{{ entry.profitOrLoss }}</td>
+      <td>{{ entry.assetsValue }}</td>
+    </tr>
+  </tbody>
+</table>
